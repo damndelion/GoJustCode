@@ -1,10 +1,18 @@
 package main
 
 import (
-	"fmt"
+	"github.com/gin-gonic/gin"
+	"log"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("Hello World!")
+	r := gin.Default()
+
+	r.GET("/hello", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{"message": "hello world"})
+	})
+
+	log.Fatal(r.Run())
 
 }
