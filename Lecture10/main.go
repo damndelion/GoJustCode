@@ -28,9 +28,10 @@ func listAddresses(ctx *gin.Context) {
 	defer redisClient.Close()
 
 	addresses, err := redisClient.Get(context.Background(), "addresses").Result()
-	if err == redis.Nil {
+	if err != nil {
 		//logic from final project to get all the wallet address from blockchain
-
+		//в блокчейне все адреса хранится в wallet.dat файле, этот файл может быть очень большим и что бы каждый раз не
+		//читать этот файлы я хеширую адрес кошелька юзера и юзер получает адрес с редиса
 		//wallets, err := blockchain.NewWallets()
 		//if err != nil {
 		//	log.Panic(err)
