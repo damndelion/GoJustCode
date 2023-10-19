@@ -6,10 +6,18 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
+	"log"
 )
 
 func main() {
 	db, err := sql.Open("postgres", "user=postgres password=postgres dbname=postgres sslmode=disable")
+	defer func(db *sql.DB) {
+		err := db.Close()
+		if err != nil {
+			log.Panicf("failed close MainDB err: %v", err)
+		}
+		log.Print("MainDB closed")
+	}(db)
 	if err != nil {
 		fmt.Println("Error opening the database connection:", err)
 		return
