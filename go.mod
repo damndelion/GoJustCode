@@ -2,6 +2,7 @@ module awesomeProject
 
 go 1.19
 
+lecture5
 require github.com/gin-gonic/gin v1.9.1
 
 require (
@@ -30,3 +31,4 @@ require (
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
