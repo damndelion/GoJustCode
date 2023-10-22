@@ -1,8 +1,10 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
+
+	"github.com/gin-gonic/gin"
+	"log"
+	"net/http"
 )
 
 func printJSONStructure(data interface{}, prefix string) {
@@ -23,17 +25,13 @@ func printJSONStructure(data interface{}, prefix string) {
 }
 
 func main() {
-	// Замените эту строку на ваш JSON-код
-	jsonData := `{"name": "John", "age": 30, "city": "New York", "pets": ["dog", "cat"]}`
 
-	var data interface{}
-	err := json.Unmarshal([]byte(jsonData), &data)
-	if err != nil {
-		fmt.Println("Ошибка при разборе JSON:", err)
-		return
-	}
+	r := gin.Default()
 
-	fmt.Println("Структура JSON:")
-	printJSONStructure(data, "")
+	r.GET("/hello", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, gin.H{"message": "hello world"})
+	})
+
+	log.Fatal(r.Run())
 
 }
