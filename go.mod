@@ -1,9 +1,11 @@
 module awesomeProject
 
-go 1.23
+go 1.19
 
 require (
 	github.com/gin-gonic/gin v1.9.1
+	github.com/go-chi/chi v1.5.5
+	github.com/go-chi/chi/v5 v5.0.10
 	github.com/gorilla/mux v1.8.0
 	github.com/lib/pq v1.10.9
 )
