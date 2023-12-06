@@ -1,12 +1,16 @@
 module awesomeProject
 
+
 go 1.21.4
+
 
 require (
 	github.com/evrone/go-clean-template v1.4.2
 	github.com/gin-gonic/gin v1.9.1
+
 	github.com/go-chi/chi/v5 v5.0.10
 	github.com/golang-jwt/jwt v3.2.2+incompatible
+
 	github.com/gorilla/mux v1.8.0
 	github.com/ilyakaznacheev/cleanenv v1.5.0
 	github.com/jackc/pgx/v4 v4.18.1
